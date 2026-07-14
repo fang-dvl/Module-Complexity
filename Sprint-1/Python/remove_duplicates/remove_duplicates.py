@@ -11,15 +11,24 @@ def remove_duplicates(values: Sequence[ItemType]) -> List[ItemType]:
     Space complexity:
     Optimal time complexity:
     """
-    unique_items = []
+    # unique_items = []
 
-    for value in values:
-        is_duplicate = False
-        for existing in unique_items:
-            if value == existing:
-                is_duplicate = True
-                break
-        if not is_duplicate:
-            unique_items.append(value)
+    # for value in values:
+    #     is_duplicate = False
+    #     for existing in unique_items:
+    #         if value == existing:
+    #             is_duplicate = True
+    #             break
+    #     if not is_duplicate:
+    #         unique_items.append(value)
 
-    return unique_items
+    # return unique_items
+    seen = set()
+    result = []
+
+    for v in values:
+        if v not in seen:
+            seen.add(v)
+            result.append(v)
+
+    return result
